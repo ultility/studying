@@ -13,6 +13,8 @@ def key_press(key):
 	except Exception as e:
 		print(e)
 def main():
+	HOST = sys.argv[1]
+	PORT = int(sys.argv[2])
 	with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
 		s.bind((HOST,PORT))
 		while True:
@@ -41,7 +43,5 @@ def communicate(Socket):
 				break
 
 
-HOST = sys.argv[1]
-PORT = int(sys.argv[2])
-global conn
-main()
+if __name__ == "__main__":
+	main()
